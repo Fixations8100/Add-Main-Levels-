@@ -1,23 +1,6 @@
-# Template
-This is where she makes a mod.
-
-<img src="logo.png" width="150" alt="the mod's logo" />
-
-*Update logo.png to change your mod's icon (please)*
-
-## Getting started
-We recommend heading over to [the getting started section on our docs](https://docs.geode-sdk.org/getting-started/) for useful info on what to do next.
-
-## Build instructions
-For more info, see [our docs](https://docs.geode-sdk.org/getting-started/create-mod#build)
-```sh
-# Assuming you have the Geode CLI set up already
-geode build
-```
-
-# Resources
-* [Geode SDK Documentation](https://docs.geode-sdk.org/)
-* [Geode SDK Source Code](https://github.com/geode-sdk/geode/)
-* [Geode CLI](https://github.com/geode-sdk/cli)
-* [Bindings](https://github.com/geode-sdk/bindings/)
-* [Dev Tools](https://github.com/geode-sdk/DevTools)
+# Add Main Levels
+My first mod to the geode. I will be testing different codes that will lead to the final code and you will be able to add your own main levels!
+<img width="1501" height="179" alt="1000027992" src="https://github.com/user-attachments/assets/f0a75389-3b3a-4da5-a482-c4a83d48193f" />
+how to use it: click the plus icon on the left in the main levels menu then the editor (the same one for custom levels) will open and you will have two options: advanced (by coding) and normal.
+<img width="1206" height="85" alt="1000027993" src="https://github.com/user-attachments/assets/a24e6f9f-5c68-4c19-89d5-c7667e24f212" />
+The mod is currently in beta version so it may have bugs/crashes and other errors.
