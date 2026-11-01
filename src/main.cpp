@@ -4,7 +4,7 @@
 using namespace geode::prelude;
 
 // Modyfikujemy warstwę wyboru poziomów głównych (LevelSelectLayer)
-class $modify(MyLevelSelectLayer, LevelSelectLayer) {
+class $modify(LevelSelectLayer) {
     bool init(int page) {
         // Najpierw ładujemy oryginalną zawartość menu gry
         if (!LevelSelectLayer::init(page)) {
@@ -19,7 +19,7 @@ class $modify(MyLevelSelectLayer, LevelSelectLayer) {
         auto plusBtn = CCMenuItemSpriteExtra::create(
             plusSprite,
             this,
-            menu_selector(MyLevelSelectLayer::onAddNewLevel)
+            menu_selector(LevelSelectLayer::onAddNewLevel)
         );
 
         // Tworzymy menu i ustawiamy przycisk po lewej stronie ekranu
@@ -34,14 +34,9 @@ class $modify(MyLevelSelectLayer, LevelSelectLayer) {
 
     // Funkcja wywoływana po kliknięciu plusa
     void onAddNewLevel(CCObject* sender) {
-        // Tutaj w przyszłości dodasz logikę wyboru: Advanced (kod) vs Normal.
-        // Na ten moment otwieramy domyślny edytor poziomów (taki jak dla custom levels),
-        // tworząc tymczasowy obiekt poziomu (GJGameLevel).
-        
         auto newLevel = GJGameLevel::create();
-        newLevel->m_levelType = GJLevelType::Editor;
+        newLevel->m_levelType = GJLevelType::Local;
         
-        // Przechodzimy bezpośrednio do warstwy edytora gry
         auto editorLayer = LevelEditorLayer::scene(newLevel, false);
         CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5f, editorLayer));
     }
