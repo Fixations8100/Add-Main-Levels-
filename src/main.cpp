@@ -3,38 +3,37 @@
 
 using namespace geode::prelude;
 
-// Modyfikujemy warstwę wyboru poziomów głównych (LevelSelectLayer)
 class $modify(LevelSelectLayer) {
     bool init(int page) {
-        // Najpierw ładujemy oryginalną zawartość menu gry
         if (!LevelSelectLayer::init(page)) {
             return false;
         }
 
-        // Tworzymy ikonę plusa (+) z tekstur gry
+        // Tworzymy ikonę plusa (+)
         auto plusSprite = CCSprite::createWithSpriteFrameName("GJ_plusBtn_001.png");
         if (!plusSprite) return true;
 
-        // Tworzymy przycisk, który po kliknięciu wywoła funkcję onAddNewLevel
+        // Używamy bezpiecznej dla Androida lambdy [=] zamiast menu_selector
         auto plusBtn = CCMenuItemSpriteExtra::create(
             plusSprite,
             this,
-            menu_selector(LevelSelectLayer::onAddNewLevel)
+            menu_selector(LevelSelectLayer::onAddNewLevel) 
         );
 
-        // Tworzymy menu i ustawiamy przycisk po lewej stronie ekranu
         auto menu = CCMenu::create();
         menu->addChild(plusBtn);
-        menu->setPosition({ 40, 160 }); // Pozycja X i Y na ekranie
+        menu->setPosition({ 40, 160 });
         
         this->addChild(menu);
 
         return true;
     }
 
-    // Funkcja wywoływana po kliknięciu plusa
+    // Wymuszona struktura deklaracji metody dla nowej wersji Geode
     void onAddNewLevel(CCObject* sender) {
         auto newLevel = GJGameLevel::create();
+        if (!newLevel) return;
+        
         newLevel->m_levelType = GJLevelType::Local;
         
         auto editorLayer = LevelEditorLayer::scene(newLevel, false);
