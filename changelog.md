@@ -1,2 +1,3 @@
 # 1.0.0
-- Edit this file to change your mod's changelog.
+- Official release of my geode mod.
+- Now you can create your main levels without coding in .txt files manually
